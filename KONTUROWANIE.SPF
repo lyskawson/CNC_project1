@@ -18,5 +18,7 @@ G1 X80
 G3 X=_totalX/2-_promien Y=-_promien CR=_promien
 
 G1 G40 X=_totalX/2 Y-80
-M17 
+M17
+
+ 
 
