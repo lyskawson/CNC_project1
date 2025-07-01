@@ -1,0 +1,22 @@
+PROC KONTUR(REAL _totalX, REAL _totalY, REAL _S, REAL _F, REAL _Z, REAL _promien)
+
+S=_S
+M3
+G0 Z=IC(-_Z) 
+F=_F
+
+
+ 
+G1 G41 X=_totalX/2 + _promien Y=-_promien
+G3 X=_totalX/2 Y0 CR=_promien
+
+G1 X0 Y0 CHR=6
+G1 X0 Y=_totalY RND=2
+G1 X=_totalX Y=_totalY CHR=6
+G1 X=_totalX Y0 RND=2
+G1 X80
+G3 X=_totalX/2-_promien Y=-_promien CR=_promien
+
+G1 G40 X=_totalX/2 Y-80
+M17 
+

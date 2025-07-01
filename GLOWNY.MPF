@@ -1,0 +1,397 @@
+EXTERN PLANOWANIE(REAL, REAL, REAL, REAL)
+EXTERN KONTUROWANIE(REAL, REAL, REAL, REAL, REAL, REAL)
+
+;planowanie 
+DEF REAL _planowanieS, _planowanieF
+DEF REAL _totalX, _totalY
+DEF REAL _naddatek
+DEF REAL _naWylot
+DEF REAL _planowanieZ
+;kontur zewnetrzny 
+DEF REAL _konturZgrubneF, _konturZgrubneS
+DEF REAL _konturDetalF, _konturDetalS
+DEF INT _counter
+DEF REAL _promienLuku 
+;kieszen prostokotna
+DEF REAL _kieszenZgrubneS
+DEF REAL _kieszenDetalS
+DEF REAL _kieszenZgrubneF
+DEF REAL _kieszenDetalF
+DEF REAL _kieszenWymiary[8]   
+;okreg w kieszeni
+DEF BOOL _isOkreg
+DEF REAL _okregZgrubneS
+DEF REAL _okregDetalS
+DEF REAL _okregZgrubneF
+DEF REAL _okregDetalF
+DEF REAL _okregWymiary[5]
+;nawiercanie 
+DEF REAL _nawiercanieF
+DEF REAL _nawiercanieS
+;otwory 3.3
+DEF REAL _otwory33F
+DEF REAL _otwory33S
+DEF REAL _otwory33[2]
+;otowry 4.2
+DEF REAL _otwory42F
+DEF REAL _otwory42S
+DEF REAL _otwory42kieszeniowe[2]
+DEF REAL _otwory42potrojne[2]
+;otwory6.6
+DEF REAL _otwory66F
+DEF REAL _otwory66S
+DEF REAL _otwory66[2]
+;poglebianie
+DEF REAL _poglebiacz6F
+DEF REAL _poglebiacz6S
+DEF REAL _poglebiacz16F
+DEF REAL _poglebiacz16S
+;gwint m4 
+DEF REAL _gwintM4S
+DEF REAL _gwintM4[2]
+;gwint m5 
+DEF REAL _gwintM5S
+DEF REAL _gwintM5kieszeniowe[2]
+DEF REAL _gwintM5potrojne[2]
+;rozmieszczenie otworw 
+DEF REAL _male[7] ; x, y, kat, l1, l2, n1, n2
+DEF REAL _duze[7] ;x, y, kat, l1, l2, n1, n2
+DEF REAL _kieszeniowe[5]  ;x, y, kat, promien, liczba 
+DEF REAL _potrojne[5]  ;x, y, kat, odleglosc, liczba 
+GROUP_BEGIN(0,"WARTOSCI ZMIENNYCH",0,0)
+;planowanie 
+_planowanieS=1080 ;predkosc
+_planowanieF=3000 ;posuw
+_planowanieZ = 0 
+_totalX=172
+_totalY=172
+_naddatek = 2
+_naWylot = -24
+;kontur zewnetrzny
+_konturZgrubneF=382
+_konturZgrubneS=1592
+_konturDetalS=7962
+_konturDetalF=366
+_counter = 0
+_promienLuku=20
+;kieszen prostokotna
+_kieszenZgrubneS=2654
+_kieszenDetalS=3981
+_kieszenZgrubneF=425
+_kieszenDetalF=358
+_kieszenWymiary[0]= 61 ;x
+_kieszenWymiary[1]= 104 ;y
+_kieszenWymiary[2]= 0 ;z0
+_kieszenWymiary[3]= 43 ; szerokosc 
+_kieszenWymiary[4]=50 ;dlugosc
+_kieszenWymiary[5]=6 ;promien
+_kieszenWymiary[6]= 27.5 ; kat
+_kieszenWymiary[7]=-11 ;z1
+
+;okreg w kieszeni
+_okregZgrubneS=1990
+_okregDetalS=3981
+_okregZgrubneF=398
+_okregDetalF=358
+_okregWymiary[0] = 61  ;x
+_okregWymiary[1] = 104  ;y
+_okregWymiary[2] = 0 ;z0
+_okregWymiary[3] = 25 ; srednica
+_okregWymiary[4] = -21
+_isOkreg = 1 ;true 
+; rozmieszczenie otworow
+_male[0]=88 ;x
+_male[1]=144 ;y
+_male[2]=-27.5 ;kat
+_male[3]=10 ;odleglosc 1 
+_male[4]=8 ;odleglosc 2
+_male[5]=3 ;ilosc rzad
+_male[6]=2 ;ilosc kolumna
+
+_duze[0]=10 ;x
+_duze[1]=10 ;y
+_duze[2]=0 ;kat
+_duze[3]= _totalX - _duze[0]*2 ;odleglosc 1 
+_duze[4]= _totalY - _duze[1]*2 ;odleglosc 2
+_duze[5]=2 ;ilosc rzad
+_duze[6]=2 ;ilosc kolumna
+
+_kieszeniowe[0]= _kieszenWymiary[0] ;x srodka 
+_kieszeniowe[1] = _kieszenWymiary[1] ;y srodka 
+_kieszeniowe[2] = 45.0 + _kieszenWymiary[6] ; kat
+_kieszeniowe[3] = 18.5 ; promien
+_kieszeniowe[4] = 4 ; liczba
+
+_potrojne[0] = 129 ;z
+_potrojne[1]= 91 - 2*19 ; y
+_potrojne[2]= 90 ; kat
+_potrojne[3] = 19 ; odleglosc
+_potrojne[4]= 3 ;liczba 
+
+;nawiercanie 
+_nawiercanieS=1327
+;otwory 3.3
+_otwory33F = 1235
+_otwory33S = 7721
+_otwory33[0] = 0 ;z0
+_otwory33[1] = _naWylot ;z1
+;otowry 4.2
+_otwory42F = 6066
+_otwory42S = 971
+_otwory42kieszeniowe[0] = 0 ;z0
+_otwory42kieszeniowe[1] = _naWylot; z1
+_otwory42potrojne[0] = 0 ;z0
+_otwory42potrojne[1] = 15 ;z1
+;otwory6.6
+_otwory66F = 849
+_otwory66S = 3860
+_otwory66[0] = 0 ;z0
+_otwory66[1] = _naWylot ;z1
+;poglebianie 
+_poglebiacz6F = 4586
+_poglebiacz6S = 1699
+_poglebiacz16F = 268
+_poglebiacz16S = 637
+;gwintowanie m4
+_gwintM4S = 557
+_gwintM4[0] = 0 ;z0
+_gwintM4[1] = _naWylot ;z1
+;gwintowanie m5
+_gwintM5S = 446
+_gwintM5potrojne[0] = 0 ;z0
+_gwintM5potrojne[1] = -11 ;z1
+_gwintM5kieszeniowe[0] = 0;z0
+_gwintM5kieszeniowe[1] = _naWylot ;z1
+
+GROUP_END(0,0)
+GROUP_BEGIN(0,"Nagłówek",0,0)
+;!!!NIE USUWAJ NAGŁÓWKA!!!
+;%%45cf7d7186807eecf88f65d98da2849cd3817ecf769f9d6320e5456a73f4792a%%
+;Politechnika Wrocławska [W12N]/[Automatyka i Robotyka]
+;Zaprogramował: [Aleksander Lyskawa]
+;Nr indeksu: [275462]
+;Kod grupy: [np. GR3 - Czw_17:05]
+;Materiał przygotówki: [np. PA9 (EN 1.2343 - ISO P)]
+;Sposób mocowania: Imadło maszynowe
+$P_UIFR[1]=CTRANS(X,-86.000,Y,-86.000,Z,139.450)
+GROUP_END(0,0)
+GROUP_BEGIN(0,"POLFABRYKAT",0,0)
+G54
+WORKPIECE(,"",,"BOX",0,2,-40,-80,-2,-2,176,176)
+G90 G94 G17
+GROUP_END(0,0)
+GROUP_BEGIN(0,"PLANOWANIE",0,0)
+T="Glowica_50"
+M6 D1
+S=_planowanieS M3
+G0 Z100
+G54
+PLANOWANIE(_totalX, _totalY, _planowanieF, _planowanieZ)
+
+GROUP_END(0,0)
+GROUP_BEGIN(0,"KONTUR ZEW FREZOWANIE (ZGRUBNE i WYKONCZENIOWE)",0,0)
+T="Frez_walcowy_20"
+M6 D1
+
+G0 Z100
+G0 X=_totalX/2 Y-80
+G0 Z=_naddatek
+WHILE _counter<9
+IF _counter<8
+KONTUROWANIE(_totalX, _totalY, _konturZgrubneS, _konturZgrubneF, 3, _promienLuku)
+ENDIF
+IF _counter==8
+KONTUROWANIE(_totalX, _totalY, _konturDetalS, _konturDetalF, 1, _promienLuku)
+ENDIF 
+_counter = _counter + 1
+ENDWHILE
+G0 Z100
+M1
+GROUP_END(0,0)
+GROUP_BEGIN(0,"FREZOWANIE ZGRUBNE OKREGU W KIESZENI",0,0)
+T="Frez_walcowy_16"
+M6 
+S=_okregZgrubneS
+M3
+M8
+G0 Z100
+
+IF _isOkreg == 1
+POCKET4(100,_okregWymiary[2],2,_okregWymiary[4],_okregWymiary[3],_okregWymiary[0],_okregWymiary[1],2.5,0.5,0,_okregZgrubneF,0.1,0,1011,50,9,15,0,2,0,1,2,10100,111,111)
+ENDIF
+GROUP_END(0,0)
+GROUP_BEGIN(0,"FREZOWANIE WYKONCZENIOWE OKREGU W KIESZENI",0,0)
+T="Frez_walcowy_8"
+M6 
+S=_okregDetalS
+M3
+M8
+G0 Z100
+IF _isOkreg == 1
+POCKET4(100,_okregWymiary[2],2,_okregWymiary[4],_okregWymiary[3],_okregWymiary[0],_okregWymiary[1],4,0.5,0,_okregDetalF,0.1,0,14,50,9,15,0,2,0,1,2,10100,111,111)
+ENDIF
+G0 Z100
+GROUP_END(0,0)
+GROUP_BEGIN(0,"FREZOWANIE ZGRUBNE KIESZENI PROSTOKATNEJ",0,0)
+T="Frez_walcowy_12"
+M6 
+S=_kieszenZgrubneS
+M3
+M8
+
+G0 Z100
+POCKET3(100,_kieszenWymiary[2],2,_kieszenWymiary[7],_kieszenWymiary[4],_kieszenWymiary[3],_kieszenWymiary[5],_kieszenWymiary[0],_kieszenWymiary[1],_kieszenWymiary[6],3,0.1,0.1,_kieszenZgrubneF,0.1,0,11,0.5,8,3,15,0,2,0,1,2,11100,11,101)
+G0 Z100
+GROUP_END(0,0)
+GROUP_BEGIN(0,"FREZOWANIE WYKONCZENIOWE KIESZENI PROSTOKATNEJ",0,0)
+
+T="Frez_walcowy_8"
+M6 
+S=_kieszenDetalS
+M3
+M8
+G0 Z100
+POCKET3(100,_kieszenWymiary[2],2,_kieszenWymiary[7],_kieszenWymiary[4],_kieszenWymiary[3],_kieszenWymiary[5],_kieszenWymiary[0],_kieszenWymiary[1],_kieszenWymiary[6],4,0.1,0.1,_kieszenDetalF,0.1,0,14,3,8,3,15,0,2,0,1,2,11100,11,101)
+G0 Z100
+
+GROUP_END(0,0)
+GROUP_BEGIN(0,"NAWIERCENIE OTWOROW",0,0)
+T="Nawiertak_6_K90"
+M6 D1
+S= _nawiercanieS
+M3
+M8
+MCALL CYCLE81(100,0,1,1.5,,0,10,1,11)
+potrojne: HOLES1(_potrojne[0],_potrojne[1],_potrojne[2],0,_potrojne[3],_potrojne[4],,0,,,1)
+MCALL
+
+MCALL CYCLE81(100,-11,1,1.5,,0,10,1,11)
+kieszeniowe:HOLES2(_kieszeniowe[0],_kieszeniowe[1],_kieszeniowe[3],_kieszeniowe[2],30,_kieszeniowe[4],1000,0,,,1)
+MCALL
+
+MCALL CYCLE81(100,0,1,1.5,,0,10,1,11)
+duzeotwory: CYCLE801(_duze[0],_duze[1],_duze[2],_duze[3],_duze[4],_duze[5],_duze[6],1,0,0,0,,,1)
+MCALL
+
+MCALL CYCLE81(100,0,1,1.5,,0,10,1,11)
+maleotwory: CYCLE801(_male[0],_male[1],_male[2],_male[3],_male[4],_male[5],_male[6],0,0,0,0,,,1)
+MCALL
+G0 Z100
+GROUP_END(0,0)
+GROUP_BEGIN(0,"WIERCENIE OTWOROW 3.3",0,0)
+T="Wiertlo_3_3_5xD"
+M6
+F= _otwory33F
+S= _otwory33S
+M3
+M8
+G0 Z100
+MCALL CYCLE82(100,_otwory33[0],1,,_otwory33[1],0,10,1,11)
+REPEATB maleotwory 
+MCALL
+G0 Z100
+GROUP_END(0,0)
+GROUP_BEGIN(0,"WIERCENIE OTWOROW 4.2",0,0)
+T="Wiertlo_4_2_5D"
+M6
+F = _otwory42F
+S = _otwory42S
+M3
+M8
+G0 Z100
+MCALL CYCLE82(100,_otwory42potrojne[0],1,,_otwory42potrojne[1],0,10,1,11)
+REPEATB potrojne 
+MCALL
+
+MCALL CYCLE82(100,_otwory42kieszeniowe[0],1,_otwory42kieszeniowe[1],,0,10,1,12)
+REPEATB kieszeniowe
+MCALL
+G0 Z100
+
+GROUP_END(0,0)
+GROUP_BEGIN(0,"WIERCENIE OTWOROW 6.6",0,0)
+T="Wiertlo_6_6_5xD"
+M6
+F= _otwory66F
+S = _otwory66S
+M3
+M8
+G0 Z100
+
+MCALL CYCLE82(100,_otwory66[0],1,_otwory66[1],,0,10,1,12)
+REPEATB duzeotwory
+MCALL
+
+G0 Z100
+GROUP_END(0,0)
+GROUP_BEGIN(0,"POGLEBIENIE OTWOROW ",0,0)
+T="Poglebiacz_6_K90"
+M6
+F= _poglebiacz6F
+S = _poglebiacz6S
+M3
+M8
+G0 Z100
+
+MCALL CYCLE81(100,0,1,5.05,,0,10,1,11)
+REPEAT potrojne
+MCALL
+G0 Z100
+
+MCALL CYCLE81(100,-11,1,5.05,,0,10,1,11)
+REPEAT kieszeniowe
+MCALL
+G0 Z100
+
+MCALL CYCLE81(100,0,1,4.05,,0,10,1,11)
+REPEATB maleotwory 
+MCALL
+G0 Z100
+
+T="Poglebiacz_16_K120"
+M6
+F = _poglebiacz16F
+S = _poglebiacz16S
+M3
+M8
+
+MCALL CYCLE81(100,0,1,13.44,,0,10,1,11)
+REPEAT duzeotwory
+MCALL
+G0 Z100
+GROUP_END(0,0)
+GROUP_BEGIN(0,"GWINTOWANIE OTWOROW M4",0,0)
+T="Gwintownik_M4"
+M6
+S = _gwintM4S
+M3
+M8
+G0 Z100
+MCALL CYCLE84(100,_gwintM4[0],1,,_gwintM4[1],0,5,,0.7,0,875,438,0,1,0,0,5,1.4,,"ISO_METRIC","M4",,1001,1001001)
+REPEATB maleotwory 
+MCALL
+G0 Z100
+GROUP_END(0,0)
+GROUP_BEGIN(0,"OBROBKA - GWINTOWANIE OTWOROW M5",0,0)
+T="Gwintownik_M5"
+M6
+S = _gwintM5S
+M3
+M8
+G0 Z100
+
+MCALL CYCLE84(100,_gwintM5potrojne[0],1,,_gwintM5potrojne[1],0,5,,0.8,0,700,350,0,1,0,0,5,1.4,,"ISO_METRIC","M5",,1001,1001001)
+REPEATB potrojne
+MCALL
+G0 Z100
+
+
+MCALL CYCLE84(100,_gwintM5kieszeniowe[0],1,,_gwintM5kieszeniowe[1],0,5,,0.8,0,700,350,0,1,0,0,5,1.4,,"ISO_METRIC","M5",,1001,1001001)
+REPEATB kieszeniowe
+MCALL
+
+G0 Z100
+GROUP_END(0,0)
+GROUP_BEGIN(0,"KONIEC PROGRAMU",0,0)
+M30             
+GROUP_END(0,0)

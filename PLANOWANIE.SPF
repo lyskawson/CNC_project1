@@ -1,0 +1,34 @@
+PROC PLANOWANIE(REAL _totalX, REAL _totalY, REAL _planowanieF, REAL _planowanieZ)
+DEF REAL _CurrentY
+DEF REAL _Change
+_CurrentY=0
+_Change = 30
+G0 Z100
+G0 X=_totalX Y=_CurrentY
+G1 Z = _planowanieZ F=_planowanieF
+
+;planowanie
+LBL_PETLA:
+    G1 X0 F=_planowanieF
+    G91
+    G1 Y30
+    _CurrentY = _CurrentY + _Change
+    G90
+
+    IF (_CurrentY >= _totalY)
+        GOTO KONIEC
+    ENDIF
+
+    G1 X=_totalX F=_planowanieF
+    G91
+    G1 Y30
+    _CurrentY = _CurrentY + _Change
+    G90
+
+    IF (_CurrentY < _totalY+_Change)
+        GOTO LBL_PETLA
+    ENDIF
+KONIEC:
+
+
+M17

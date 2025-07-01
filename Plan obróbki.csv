@@ -1,0 +1,27 @@
+﻿Grupa: ;;3;;Plan obróbki - programowanie maszyn CNC;;;;;;;;;;Wzór karty obowiązuje od:
+Imię i nazwisko: ;;Aleksander Łyskawa;;;;;;;;;;;;1.01.2024r
+Nr indeksu:;;275462;;;;;;;;;;;;
+Materiał:;;Stal narzędziowa EN 1.2343 - ISO P;;;;;;;;;;;;
+Nr zabiegu;Nazwa zabiegu;Nr narzędzia w magazynie;Nazwa narzędzia z biblioteki;Katalogowa nazwa narzędzia;Katalogowy nr narzędzia/ nr artykułu;Długość ostrza Lc / maks. głebokość skrawania [mm];Średnica robocza Dc/D [mm];Średnica chwytu Ds [mm];Ilość ostrzy [liczba];Prędkość skrawania vc [m/min];Posuw na ostrze fz [mm];Prędkość obrotowa n  [min.-1];Posuw minutowy f [mm/min];Uwagi do zabiegu
+10;Planowanie;1;Glowica_50;Głowice frezarskie do płaszczyzn 45° 50/5 mm + SEKT 1204 AFTN UNI;214908 40/5 + 214315 UNI;3,5;50;50;5;170;0,5;1080;2700;-
+20;Kontur zewnętrzny - frezownie zgrubne;2;Frez_walcowy_20;Frezy trzpieniowe VHM, TiAlN, ⌀ DC: 20mm;201650 20;38;20;20;2;100;0,12;1592;382;-
+30;Kontur zewnętrzny - frezownie wykończeniowe;3;Frez_walcowy_4;Frezy trzpieniowe VHM, TiAlN, ⌀ DC: 4mm;201650 4;11;4;6;2;100;0,023;7962;366;-
+40;Otwór w kieszeni - frezowanie zgrubne;4;Frez_walcowy_16;Frezy trzpieniowe VHM, TiAlN, ⌀ DC: 16mm;201650 16;32;16;16;2;100;0,1;1990;398;-
+50;Otwór w kieszeni - frezowanie wykańczające;5;Frez_walcowy_8;Frezy trzpieniowe VHM, TiAlN, ⌀ DC: 8mm;201650 8;19;8;8;2;100;0,045;3981;358;-
+60;Kieszeń - frezowanie zgrubne;6;Frez_walcowy_12;Frezy trzpieniowe VHM, TiAlN, ⌀ DC: 12mm;201650 12;26;12;12;2;100;0,08;2654;425;-
+70;Kieszeń - frezowanie wykańczające;5;Frez_walcowy_8;Frezy trzpieniowe VHM, TiAlN, ⌀ DC: 8mm;201650 8;19;8;8;2;100;0,045;3981;358;-
+80;Nawiercanie 3 x ∅4,20 ;7;Nawiertak_6_K90;Nawiertaki NC z HSS-E 90° N, bez powłoki, ⌀ DC h6: 6mm;112000 6;6;6;6;2;25;-;1327;-;-
+90;Nawiercanie 4 x ∅6,60;7;Nawiertak_6_K90;Nawiertaki NC z HSS-E 90° N, bez powłoki, ⌀ DC h6: 6mm;112000 6;6;6;6;2;25;-;1327;-;-
+100;Nawiercanie 4 x ∅4,20 ;7;Nawiertak_6_K90;Nawiertaki NC z HSS-E 90° N, bez powłoki, ⌀ DC h6: 6mm;112000 6;6;6;6;2;25;-;1327;-;-
+110;Nawiercanie 6 x ∅3,30;7;Nawiertak_6_K90;Nawiertaki NC z HSS-E 90° N, bez powłoki, ⌀ DC h6: 6mm;112000 6;6;6;6;2;25;-;1327;-;-
+120;Wiercenie 6 x ∅3,30 przez wszystko;8;Wiertlo_3_3_5xD;Wiertła skrętne VHM, TiAlN, ⌀ DC h7: 3,3mm;122251 3,3;31;3,3;3,3;2;80;0,08;7721;1235;-
+130;Wiercenie 4 x ∅4,20 przez wszystko;9;Wiertlo_4_2_5D;Wiertła skrętne VHM, TiAlN, ⌀ DC h7: 4,2mm;122251 4,2;36;4,2;4,2;2;80;0,08;6066;971;-
+140;Wiercenie 3 x ∅4,20 przez wszystko;9;Wiertlo_4_2_5D;Wiertła skrętne VHM, TiAlN, ⌀ DC h7: 4,2mm;122251 4,2;36;4,2;4,2;2;80;0,08;6066;971;-
+150;Wiercenie przez wszystko 4 x ∅6,60;10;Wiertlo_6_6_5xD;Wiertła skrętne VHM, TiAlN, ⌀ DC h7: 6,6mm;122251 6,6;50;6,6;6,6;2;80;0,11;3860;849;-
+160;Pogłębianie 6 x ∅4,05 x 90° Zewnętrzny;11;Poglebiacz_6_K90;Pogłębiacze stożkowe 90°, TiN, ⌀ zewn. Dc: 6mm;150180 6;3;6;5;3;32;0,9;1699;4586;-
+170;Pogłębianie 4 x ∅5,05 x 90° Zewnętrzny;11;Poglebiacz_6_K90;Pogłębiacze stożkowe 90°, TiN, ⌀ zewn. Dc: 6mm;150180 6;3;6;5;3;32;0,9;1699;4586;-
+180;Pogłębianie 3 x ∅5,05 x 90° Zewnętrzny;11;Poglebiacz_6_K90;Pogłębiacze stożkowe 90°, TiN, ⌀ zewn. Dc: 6mm;150180 6;3;6;5;3;32;0,9;1699;4586;-
+190;Pogłębianie 4 x ∅13,44 x 90°;12;Poglebiacz_16_K120;Pogłębiacze stożkowe 120°, bez powłoki, ⌀ zewn. DC: 16mm;150020 16;6;16;10;3;32;0,14;637;268;-
+200;Gwintowanie 6 x M4 przez wszystko;13;Gwintownik_M4;Gwintowniki maszynowe HSS/E kształt C, waporyzowane, M: M4;135855 M4;12;4;4,5;2;7;-;557;-;Skok gwintu 0,7mm
+210;Gwintowanie 3 x M5 - 6H na 11mm;14;Gwintownik_M5;Gwintowniki maszynowe HSS/E kształt C, waporyzowane, M: M5;135855 M5;15;5;6;2;7;-;446;-;Skok gwintu 0,8mm
+220;Gwintowanie 4 x M5 przez wszystko;14;Gwintownik_M5;Gwintowniki maszynowe HSS/E kształt C, waporyzowane, M: M5;135855 M5;15;5;6;2;7;-;446;-;Skok gwintu 0,8mm
